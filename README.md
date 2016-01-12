@@ -1,2 +1,0 @@
-# yocto-book
-yocto guide
