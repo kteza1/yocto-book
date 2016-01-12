@@ -12,7 +12,7 @@ branches:
 
 before_install:
 - mkdir documentation
-- cargo install mdbook 2>/dev/null
+#- cargo install mdbook 2>/dev/null
 - export PATH=$PATH:$HOME/.cargo/bin
 
 script:
