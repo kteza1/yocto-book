@@ -5,23 +5,19 @@ cache:
   - "$HOME/.cargo"
 os:
 - linux
-
 branches:
   only:
   - master
-
 before_install:
 - mkdir documentation
-#- cargo install mdbook 2>/dev/null
+- rm -rf $HOME/.cargo/bin/mdbook
+- cargo install mdbook
 - export PATH=$PATH:$HOME/.cargo/bin
-
 script:
 - mdbook init
 - mdbook build; cp -r book/* documentation
-
 after_success:
 - bash scripts/upload_doc.sh
-
 env:
   global:
-    secure: thEDMdg1psj36lu8ertS3UKlcUwyfRZFTNeaAAsaU0sjOqqqpp22pCBmPGFh9xoSwDFma6+AwodP6R05toQ57bNTdQGEF5v7qvb9++uD9oLxvz1Y0yyJZJJWSlp2J4eBDtjIbum/Kf/TBP9czS0UHxFWNM6qFuKFFxhJQb503mFf4MSCHyfFB2waHOgnNcjffQ74mUxsJlEQK8LEIS5xFwtogHbYQdFNEg7F80oi9XkJJ/VLsrI+4MAmwMh9wW9bFzeqSsyqnDGRXf2AJuCcIWlt9wPRX6lFMXV9eqjwWFyDDOMiSxIRqK/gd8Ftf8U2lM8HfPaNqWxwBE65NIX39Zo86BUadUR6sKz8+ZqS51UclrLiOXG7M0uwPXtTm7Hwn/rxhzEL27bp8uzy7jm97bd627roBrIAUt5/b1FsiAEtJ96hqs7GVIz8NpKFRvztSRTi/dLiKUvsUY0AebSq6IH3yjNAayYvuD+eZ2hXephaK5D57JnXxte4UiM3F0R94g5Prx39I9AR3orKpubKzWcZH3fM5f1Yp0kIp+JC4+ZOycy5koNV9m30NErFMJrl7CQoPAixwUwaWA6EODFrybGK7Fj2ttU2JY5zDdL8IdxEDAk3Wcab+Hf93DolNi6V5RPdY1Q0LBFH+SGnDD9YvE2DQJGFSW4r8JcR45MF1HA=
+  - secure: Jc96i9nYYl1oh8nPgBWvBWXDsli7vKHBE0bE8vGQcpahtQCOuZyHrG7O/nRhSk5ikpK9fkHKcVn+k1lli8jnd83ZF1K+TmRppNu0QPsUY5ZUjBxJ56xL3H6/I6nWPItOH4vh8SI6uGkahrvm/QlxkhJSbk0cZlWw2tOeRMATh9PDWt6dPMBTtYmYRjI2f8CkS9h+l0pzfjQjQvCosNoJbek1Yhu5dxH5mvo4CTKiahZ3iH86n5Hu6UEFNP+73Z9qMUhz/ctc4T9yH2qxV9dPm3pWRdgwb8xLTn9/3H+T/9DlZTjs/HRrOtLOgm7ViE70YOBpp4DD3oqqmIMu2C+1X0xCVHZ3TR/7RAontxg5GeJDDD3cw2DE9mcChyeuLGTTJ2/HtKjMUhvPLz0c2QvnVFnmo8iERl5hpli7o9AEiHfaxoo3CzS8k3k0xc4pFU1d2Bejxe2l5xVGys55u6cl0c6Hyv2E+F2a4mAK9uQ3w+48vjsYfZK0xwWlBTcSwzbWPr0KnF0W4OGxQhPJSnCLp12W+6sX7Xr/NT89ay9wzDFyHsE41XkP6HQuH13D+gf5rmTkCDlbBsB/jvneSpdlhe9eEMBqheqopepvu0S9JuxOh+6xi5GX+9UTtCaQvMVL4Jl7Hntn9q02FrKljh4zLr3HFcYgYIUTsLqgtuIdAz4=
