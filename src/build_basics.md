@@ -33,9 +33,31 @@ Poky also supports some reference hardware Board Support Packages (BSPs), repres
 
 
 
-####ORGANIZING BUILD DIR & STARTING BUILD
+#### ORGANIZING BUILD DIR
 
 There is no right way to structure the build directories when you have multiple projects, but a good practice is to have **one build directory per architecture or machine type**. 
 
-They can all share a common downloads folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously
+They can all share a **common downloads** folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously
+
+```
+$ cd /opt/yocto/poky  
+$ source oe-init-build-env <build dir> --> Create a build envoronment in your current shell
+```
+
+##### TIP
+
+BitBake is designed with a client/server abstraction, so we can also start a memory resident server and connect a client to it. With this setup, loading cache and configuration information each time is avoided, which saves some overhead. To run a memory resident BitBake that will always be available, you can use the oe-init-build-env-memres script as follows
+
+```
+source oe-init-build-env-memres 12345 qemuarm
+```
+
+You can then kill the memory resident BitBake by executing the following command
+
+```
+$ bitbake -m
+```
+
+**NOTE**: Don't use memres and normal setup at the same time as it could lead to confusing errors
+
 
