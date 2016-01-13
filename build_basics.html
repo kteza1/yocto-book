@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./build_basics.html"><strong>1.</strong> Chapter 1</a></li><li><a href="./layers.html"><strong>2.</strong> Chapter 2</a></li></ul>
+            <ul class="chapter"><li><a href="./build_basics.html" class="active"><strong>1.</strong> Chapter 1</a></li><li><a href="./layers.html"><strong>2.</strong> Chapter 2</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -92,12 +92,6 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
 <p>####ORGANIZING BUILD DIR &amp; STARTING BUILD</p>
 <p>There is no right way to structure the build directories when you have multiple projects, but a good practice is to have <strong>one build directory per architecture or machine type</strong>.</p>
 <p>They can all share a common downloads folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>
-<p>Poky contains three metadata directories, meta, meta-yocto, and meta-yocto-bsp, as well as a template metadata layer, meta-skeleton, that can be used as a base for new layers</p>
-<ul>
-<li><strong>meta</strong>: This directory contains the OpenEmbedded-Core metadata, which supports the ARM, x86, x86-64, PowerPC, MIPS, and MIPS64 architectures and the QEMU emulated hardware.</li>
-<li><strong>meta-yocto</strong>: This contains Poky's distribution-specific metadata.</li>
-<li><strong>meta-yocto-bsp</strong>: This contains metadata for the reference hardware boards</li>
-</ul>
 
                 </div>
 
@@ -105,11 +99,19 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
                 
 
                 
+                    <a href="./layers.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
 
             </div>
 
             
 
+            
+                <a href="./layers.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             
 
         </div>
