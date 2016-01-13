@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html" class="active"><strong>2.</strong> Build Basics</a></li><li><a href="./layers.html"><strong>3.</strong> Layers</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html" class="active"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -89,9 +89,20 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
 <li>Intel x86 based PCs and devices (genericx86 and genericx86-64)</li>
 <li>Ubiquiti Networks EdgeRouter Lite (edgerouter)</li>
 </ul>
-<p>####ORGANIZING BUILD DIR &amp; STARTING BUILD</p>
+<h4>ORGANIZING BUILD DIR</h4>
 <p>There is no right way to structure the build directories when you have multiple projects, but a good practice is to have <strong>one build directory per architecture or machine type</strong>.</p>
-<p>They can all share a common downloads folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>
+<p>They can all share a <strong>common downloads</strong> folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>
+<pre><code>$ cd /opt/yocto/poky  
+$ source oe-init-build-env &lt;build dir&gt; --&gt; Create a build envoronment in your current shell
+</code></pre>
+<h5>TIP</h5>
+<p>BitBake is designed with a client/server abstraction, so we can also start a memory resident server and connect a client to it. With this setup, loading cache and configuration information each time is avoided, which saves some overhead. To run a memory resident BitBake that will always be available, you can use the oe-init-build-env-memres script as follows</p>
+<pre><code>source oe-init-build-env-memres 12345 qemuarm
+</code></pre>
+<p>You can then kill the memory resident BitBake by executing the following command</p>
+<pre><code>$ bitbake -m
+</code></pre>
+<p><strong>NOTE</strong>: Don't use memres and normal setup at the same time as it could lead to confusing errors</p>
 
                 </div>
 
@@ -103,7 +114,7 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
                 
 
                 
-                    <a href="./layers.html" class="mobile-nav-chapters next">
+                    <a href="./build_config.html" class="mobile-nav-chapters next">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -117,7 +128,7 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
             
 
             
-                <a href="./layers.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                <a href="./build_config.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
                     <i class="fa fa-angle-right"></i>
                 </a>
             
