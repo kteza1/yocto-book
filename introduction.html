@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./layers.html"><strong>3.</strong> Layers</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html" class="active"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./layers.html"><strong>3.</strong> Layers</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -80,40 +80,6 @@
 <p>Openwrt took buildroot approach of makefiles + kconfig while openembedded took a different approach</p>
 <p>OpenEmbedded recipes can specify dependencies between packages, and later on, <strong>BitBake parses all the recipes and creates a queue of tasks in the correct order to fulfill the dependencies</strong></p>
 <p>Two examples of distributions created with OpenEmbedded are Angstrom and OpenMoko. Another OpenEmbedded-based distribution was Poky</p>
-<h1>BUILD SETUP &amp; BUILD</h1>
-<h4>UBUNTU 15.10 SETUP</h4>
-<pre><code>sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm make xsltproc docbook-utils fop dblatex xmlto autoconf automake libtool libglib2.0-dev python-gtk2 bsdmainutils screen
-</code></pre>
-<p>poky incorporates stable bitbake release. So to get started with yocto, we just need to get poky</p>
-<pre><code>sudo install -o $(id -u) -g $(id -g) -d /opt/yocto 
-$ cd /opt/yocto 
-$ git clone --branch dizzy git://git.yoctoproject.org/poky
-</code></pre>
-<p>The <strong>Poky build system</strong> supports virtualized QEMU machines for the following architectures:</p>
-<ul>
-<li>ARM (qemuarm)</li>
-<li>x86 (qemux86)</li>
-<li>x86-64 (qemux86-64)</li>
-<li>PowerPC (qemuppc)</li>
-<li>MIPS (qemumips, qemumips64)</li>
-</ul>
-<p>Poky also supports some reference hardware Board Support Packages (BSPs), representative of the architectures just listed. These are those BSPs</p>
-<ul>
-<li>Texas Instruments Beaglebone (beaglebone)</li>
-<li>Freescale MPC8315E-RDB (mpc8315e-rdb)</li>
-<li>Intel x86 based PCs and devices (genericx86 and genericx86-64)</li>
-<li>Ubiquiti Networks EdgeRouter Lite (edgerouter)</li>
-</ul>
-<p>####ORGANIZING BUILD DIR &amp; STARTING BUILD</p>
-<p>There is no right way to structure the build directories when you have multiple projects, but a good practice is to have <strong>one build directory per architecture or machine type</strong>.</p>
-<p>They can all share a common downloads folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>
-<h1>LAYERS</h1>
-<p>Poky contains three metadata directories, meta, meta-yocto, and meta-yocto-bsp, as well as a template metadata layer, meta-skeleton, that can be used as a base for new layers</p>
-<ul>
-<li><strong>meta</strong>: This directory contains the OpenEmbedded-Core metadata, which supports the ARM, x86, x86-64, PowerPC, MIPS, and MIPS64 architectures and the QEMU emulated hardware.</li>
-<li><strong>meta-yocto</strong>: This contains Poky's distribution-specific metadata.</li>
-<li><strong>meta-yocto-bsp</strong>: This contains metadata for the reference hardware boards</li>
-</ul>
 
                 </div>
 
@@ -121,11 +87,19 @@ $ git clone --branch dizzy git://git.yoctoproject.org/poky
                 
 
                 
+                    <a href="./build_basics.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
 
             </div>
 
             
 
+            
+                <a href="./build_basics.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             
 
         </div>
