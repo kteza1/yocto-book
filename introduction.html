@@ -65,18 +65,27 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h1>INTRODUCTION</h1>
-<p>poky is the build system for yocto</p>
+                    <p>poky is the build system for yocto</p>
 <p><strong>poky = bitbake + open embedded core</strong></p>
 <p>poky builds following components</p>
 <ol>
-<li>bootloader image</li>
-<li>linux kernel image</li>
-<li>root fs image</li>
-<li>toolchais and SDKs for application development</li>
+<li>
+<p>bootloader image</p>
+</li>
+<li>
+<p>linux kernel image</p>
+</li>
+<li>
+<p>root fs image</p>
+</li>
+<li>
+<p>toolchais and SDKs for application development</p>
+</li>
 </ol>
-<p>1 + 2 + 3 =&gt; system development
-4         =&gt; for application development</p>
+<ul>
+<li>1 + 2 + 3 =&gt; system development</li>
+<li>4         =&gt; for application development</li>
+</ul>
 <p>Openwrt took buildroot approach of makefiles + kconfig while openembedded took a different approach</p>
 <p>OpenEmbedded recipes can specify dependencies between packages, and later on, <strong>BitBake parses all the recipes and creates a queue of tasks in the correct order to fulfill the dependencies</strong></p>
 <p>Two examples of distributions created with OpenEmbedded are Angstrom and OpenMoko. Another OpenEmbedded-based distribution was Poky</p>

@@ -66,6 +66,7 @@
 
                 <div id="content" class="content">
                     <h3>HOW BUILD WORKS</h3>
+<hr />
 <p><code>oe-init-build</code> script calls the <code>scripts/oe-setup-builddir</code> script inside the poky directory to create the build directory.</p>
 <p>On creation, the build directory contains a conf directory with the following three files:</p>
 <ul>
@@ -83,20 +84,25 @@ $ rm -Rf tmp sstate-cache
 </code></pre>
 <p>The <code>TEMPLATECONF</code> variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named local.conf.sample and bblayers.conf.sample</p>
 <h3>BUILD CONFIG</h3>
+<hr />
 <p>Choose the image that you want to build for. Poky has support for some <strong>image configurations</strong> by default</p>
 <pre><code>$ cd /opt/yocto/poky 
 $ ls meta*/recipes*/images/*.bb
 </code></pre>
 <h5>DIFFERENT IMAGE CONFIG SUFFIXES</h5>
-<p><strong>dev</strong>: These images are suitable for development work, as they contain headers and libraries.
-<strong>sdk</strong>: These images include a complete SDK that can be used for development on the target
-<strong>initramfs</strong>: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel</p>
+<ul>
+<li>dev**: These images are suitable for development work, as they contain headers and libraries.</li>
+<li>sdk**: These images include a complete SDK that can be used for development on the target</li>
+<li>initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel</li>
+</ul>
 <h3>STARTING THE BUILD</h3>
+<hr />
 <pre><code>$ cd /opt/yocto/poky
 $ source oe-init-build-env qemuarm
 $ MACHINE=qemuarm bitbake core-image-minimal
 </code></pre>
 <h3>HOW IT WORKS</h3>
+<hr />
 <p>When you pass a target recipe (<strong>core-image-minimal.bb</strong>) to BitBake, it first parses the following configuration files:</p>
 <ul>
 <li><strong><build dir>/conf/bblayers.conf</strong>: This file is used to find all the configured layers</li>
@@ -117,6 +123,7 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <h5>TIP 2</h5>
 <p>You can use a <code>custom template</code> config <code>local.conf.sample</code> configuration file in your own layer to keep these configurations and apply them for all projects so that they can be shared across all developers. Use the <code>TEMPLATECONF</code> var</p>
 <h3>IMAGES</h3>
+<hr />
 <p>You can find images here</p>
 <pre><code>tmp/deploy/images/qemuarm
 </code></pre>
@@ -126,6 +133,7 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <pre><code>RM_OLD_IMAGE = &quot;1&quot;
 </code></pre>
 <h3>RUN THE IMAGE</h3>
+<hr />
 <pre><code>$ runqemu qemuarm core-image-minimal
 </code></pre>
 
