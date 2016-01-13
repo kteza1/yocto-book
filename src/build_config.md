@@ -1,4 +1,5 @@
 ### HOW BUILD WORKS
+---
 
 `oe-init-build` script calls the `scripts/oe-setup-builddir` script inside the poky directory to create the build directory. 
 
@@ -27,6 +28,7 @@ The `TEMPLATECONF` variable needs to refer to a directory containing templates f
 
 
 ### BUILD CONFIG
+---
 
 Choose the image that you want to build for. Poky has support for some **image configurations** by default
 
@@ -38,11 +40,12 @@ $ ls meta*/recipes*/images/*.bb
 
 ##### DIFFERENT IMAGE CONFIG SUFFIXES
 
-**dev**: These images are suitable for development work, as they contain headers and libraries. 
-**sdk**: These images include a complete SDK that can be used for development on the target
-**initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel
+* dev**: These images are suitable for development work, as they contain headers and libraries. 
+* sdk**: These images include a complete SDK that can be used for development on the target
+* initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel
 
 ### STARTING THE BUILD
+---
 
 ```
 $ cd /opt/yocto/poky
@@ -51,6 +54,7 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 ```
 
 ### HOW IT WORKS
+---
 
 When you pass a target recipe (**core-image-minimal.bb**) to BitBake, it first parses the following configuration files: 
 
@@ -83,6 +87,7 @@ You can use a `custom template` config `local.conf.sample` configuration file in
 
 
 ### IMAGES
+---
 
 You can find images here
 
@@ -102,6 +107,7 @@ RM_OLD_IMAGE = "1"
 
 
 ### RUN THE IMAGE
+---
 
 ```
 $ runqemu qemuarm core-image-minimal

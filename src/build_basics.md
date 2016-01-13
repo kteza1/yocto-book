@@ -1,6 +1,5 @@
-# BUILD SETUP & BUILD
-
-#### UBUNTU 15.10 SETUP
+### UBUNTU 15.10 SETUP
+---
 
 ```
 sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm make xsltproc docbook-utils fop dblatex xmlto autoconf automake libtool libglib2.0-dev python-gtk2 bsdmainutils screen
@@ -33,7 +32,8 @@ Poky also supports some reference hardware Board Support Packages (BSPs), repres
 
 
 
-#### ORGANIZING BUILD DIR
+### ORGANIZING BUILD DIR
+---
 
 There is no right way to structure the build directories when you have multiple projects, but a good practice is to have **one build directory per architecture or machine type**. 
 

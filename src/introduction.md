@@ -1,5 +1,3 @@
-# INTRODUCTION
-
 poky is the build system for yocto
 
 **poky = bitbake + open embedded core**
@@ -11,8 +9,8 @@ poky builds following components
 3. root fs image
 4. toolchais and SDKs for application development
 
-1 + 2 + 3 => system development
-4         => for application development
+* 1 + 2 + 3 => system development
+* 4         => for application development
 
 Openwrt took buildroot approach of makefiles + kconfig while openembedded took a different approach
 
