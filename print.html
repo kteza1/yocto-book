@@ -160,15 +160,27 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <li><strong>meta-yocto/conf/distro/<distro>.conf</strong>: This file is the distribution policy; by default, this is the <code>poky.conf</code> file</li>
 </ul>
 <p>And then BitBake parses the <strong>target recipe</strong> that has been provided and its dependencies. The outcome is a set of interdependent tasks that BitBake will then execute in order</p>
-<h4>TIP 1</h4>
+<h5>TIP 1</h5>
 <p>Most developers won't be interested in keeping the whole build output for every package, so it is recommended to configure your project to remove it with the following configuration in your <code>conf/local.conf</code> file:</p>
 <pre><code>INHERIT += &quot;rm_work&quot; 
 </code></pre>
 <p>But at the same time, configuring it for all packages means that you won't be able to develop or debug them. You can add a list of packages to exclude from cleaning by adding them to the <code>RM_WORK_EXCLUDE</code> variable. For example, if you are going to do BSP work, a good setting might be:</p>
 <pre><code>RM_WORK_EXCLUDE += &quot;linux-yocto u-boot&quot;
 </code></pre>
-<h4>TIP 2</h4>
+<h5>TIP 2</h5>
 <p>You can use a <code>custom template</code> config <code>local.conf.sample</code> configuration file in your own layer to keep these configurations and apply them for all projects so that they can be shared across all developers. Use the <code>TEMPLATECONF</code> var</p>
+<h3>IMAGES</h3>
+<p>You can find images here</p>
+<pre><code>tmp/deploy/images/qemuarm
+</code></pre>
+<p>directory inside your build directory</p>
+<h5>TIP</h5>
+<p>By default, images are not erased from the deploy directory, but you can configure your project to remove the previously built version of the same image by adding the following to your <code>conf/local.conf</code> file:</p>
+<pre><code>RM_OLD_IMAGE = &quot;1&quot;
+</code></pre>
+<h3>RUN THE IMAGE</h3>
+<pre><code>$ runqemu qemuarm core-image-minimal
+</code></pre>
 <h1>LAYERS</h1>
 <p>Poky contains three metadata directories, meta, meta-yocto, and meta-yocto-bsp, as well as a template metadata layer, meta-skeleton, that can be used as a base for new layers</p>
 <ul>
