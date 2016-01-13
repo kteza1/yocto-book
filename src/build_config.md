@@ -63,7 +63,7 @@ When you pass a target recipe (**core-image-minimal.bb**) to BitBake, it first p
 
 And then BitBake parses the **target recipe** that has been provided and its dependencies. The outcome is a set of interdependent tasks that BitBake will then execute in order
 
-#### TIP 1
+##### TIP 1
 
 Most developers won't be interested in keeping the whole build output for every package, so it is recommended to configure your project to remove it with the following configuration in your `conf/local.conf` file: 
 
@@ -77,6 +77,33 @@ But at the same time, configuring it for all packages means that you won't be ab
 RM_WORK_EXCLUDE += "linux-yocto u-boot"
 ```
 
-#### TIP 2
+##### TIP 2
 
 You can use a `custom template` config `local.conf.sample` configuration file in your own layer to keep these configurations and apply them for all projects so that they can be shared across all developers. Use the `TEMPLATECONF` var
+
+
+### IMAGES
+
+You can find images here
+
+```
+tmp/deploy/images/qemuarm
+```
+
+directory inside your build directory
+
+##### TIP
+
+By default, images are not erased from the deploy directory, but you can configure your project to remove the previously built version of the same image by adding the following to your `conf/local.conf` file: 
+
+```
+RM_OLD_IMAGE = "1"
+```
+
+
+### RUN THE IMAGE
+
+```
+$ runqemu qemuarm core-image-minimal
+```
+
