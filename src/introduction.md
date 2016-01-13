@@ -1,4 +1,4 @@
-# Chapter 1
+# INTRODUCTION
 
 poky is the build system for yocto
 

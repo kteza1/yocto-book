@@ -1,4 +1,5 @@
 # Summary
 
-- [Chapter 1](./build_basics.md)
-- [Chapter 2](./layers.md)
+- [Introduction](./introduction.md)
+- [Build Basics](./build_basics.md)
+- [Layers](./layers.md)
