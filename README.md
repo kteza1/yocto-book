@@ -1,2 +1,3 @@
 # yocto-book
-yocto guide
+
+[GUIDE](http://kteza1.github.io/yocto-book/)
