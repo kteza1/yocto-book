@@ -18,7 +18,7 @@ $ rm -Rf tmp sstate-cache
 
 ##### CHOOSING A CUSTOM TEMPLATE CONFIGURATION
 
-when you create your build directory using the TEMPLATECONF variable; for example
+when you create your build directory using the `TEMPLATECONF` variable; for example
 
 ```
 $ TEMPLATECONF=meta-custom/config source oe-init-build-env <build- dir> 
@@ -40,9 +40,9 @@ $ ls meta*/recipes*/images/*.bb
 
 ##### DIFFERENT IMAGE CONFIG SUFFIXES
 
-* dev**: These images are suitable for development work, as they contain headers and libraries. 
-* sdk**: These images include a complete SDK that can be used for development on the target
-* initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel
+* **dev**: These images are suitable for development work, as they contain headers and libraries. 
+* **sdk**: These images include a complete SDK that can be used for development on the target
+* **initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel
 
 ### STARTING THE BUILD
 ---

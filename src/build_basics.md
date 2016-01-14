@@ -10,9 +10,12 @@ poky incorporates stable bitbake release. So to get started with yocto, we just 
 ```
 sudo install -o $(id -u) -g $(id -g) -d /opt/yocto 
 $ cd /opt/yocto 
-$ git clone --branch dizzy git://git.yoctoproject.org/poky
+$ git clone --branch jethro --single-branch git://git.yoctoproject.org/poky
 ```
 
+###### NOTE:
+
+If you face compilation errors w.r.t qemu-native due to dbus incompatibility (`poky/qemuarm/tmp/work/x86_64-linux/qemu-native/2.4.0-r1/build/config.log`), Apply [this patch](http://lists.openembedded.org/pipermail/openembedded-core/2015-November/112207.html)
 
 The **Poky build system** supports virtualized QEMU machines for the following architectures: 
 
