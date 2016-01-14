@@ -96,8 +96,10 @@
 <p>poky incorporates stable bitbake release. So to get started with yocto, we just need to get poky</p>
 <pre><code>sudo install -o $(id -u) -g $(id -g) -d /opt/yocto 
 $ cd /opt/yocto 
-$ git clone --branch dizzy git://git.yoctoproject.org/poky
+$ git clone --branch jethro --single-branch git://git.yoctoproject.org/poky
 </code></pre>
+<h6>NOTE:</h6>
+<p>If you face compilation errors w.r.t qemu-native due to dbus incompatibility (<code>poky/qemuarm/tmp/work/x86_64-linux/qemu-native/2.4.0-r1/build/config.log</code>), Apply <a href="http://lists.openembedded.org/pipermail/openembedded-core/2015-November/112207.html">this patch</a></p>
 <p>The <strong>Poky build system</strong> supports virtualized QEMU machines for the following architectures:</p>
 <ul>
 <li>ARM (qemuarm)</li>
@@ -142,7 +144,7 @@ $ source oe-init-build-env &lt;build dir&gt; --&gt; Create a build envoronment i
 $ rm -Rf tmp sstate-cache
 </code></pre>
 <h5>CHOOSING A CUSTOM TEMPLATE CONFIGURATION</h5>
-<p>when you create your build directory using the TEMPLATECONF variable; for example</p>
+<p>when you create your build directory using the <code>TEMPLATECONF</code> variable; for example</p>
 <pre><code>$ TEMPLATECONF=meta-custom/config source oe-init-build-env &lt;build- dir&gt; 
 </code></pre>
 <p>The <code>TEMPLATECONF</code> variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named local.conf.sample and bblayers.conf.sample</p>
@@ -154,9 +156,9 @@ $ ls meta*/recipes*/images/*.bb
 </code></pre>
 <h5>DIFFERENT IMAGE CONFIG SUFFIXES</h5>
 <ul>
-<li>dev**: These images are suitable for development work, as they contain headers and libraries.</li>
-<li>sdk**: These images include a complete SDK that can be used for development on the target</li>
-<li>initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel</li>
+<li><strong>dev</strong>: These images are suitable for development work, as they contain headers and libraries.</li>
+<li><strong>sdk</strong>: These images include a complete SDK that can be used for development on the target</li>
+<li><strong>initramfs</strong>: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel</li>
 </ul>
 <h3>STARTING THE BUILD</h3>
 <hr />
