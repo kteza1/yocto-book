@@ -7,6 +7,7 @@
         <meta name="description" content="{% block description %}{% endblock %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <base href="">
 
         <link rel="stylesheet" href="book.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -44,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html" class="active"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./cheat_sheet.html"><strong>5.</strong> Cheat Sheet</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./cheat_sheet.html" class="active"><strong>5.</strong> Cheat Sheet</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -64,50 +65,33 @@
                 </div>
 
                 <div id="content" class="content">
-                    <p>poky is the build system for yocto</p>
-<p><strong>poky = bitbake + open embedded core</strong></p>
-<p>poky builds following components</p>
-<ol>
-<li>
-<p>bootloader image</p>
-</li>
-<li>
-<p>linux kernel image</p>
-</li>
-<li>
-<p>root fs image</p>
-</li>
-<li>
-<p>toolchais and SDKs for application development</p>
-</li>
-</ol>
-<ul>
-<li>1 + 2 + 3 =&gt; system development</li>
-<li>4         =&gt; for application development</li>
-</ul>
-<p>Openwrt took buildroot approach of makefiles + kconfig while openembedded took a different approach</p>
-<p>OpenEmbedded recipes can specify dependencies between packages, and later on, <strong>BitBake parses all the recipes and creates a queue of tasks in the correct order to fulfill the dependencies</strong></p>
-<p>Two examples of distributions created with OpenEmbedded are Angstrom and OpenMoko. Another OpenEmbedded-based distribution was Poky</p>
+                    <h5>CLEAN A RECIPE</h5>
+<p><strong>bitbake -c clean <recipe></strong></p>
+<h5>FIND AND CHECK PACKAGE CONTENT</h5>
+<p>search here --&gt; <strong>cd tmp/deploy/rpm/</strong></p>
+<p>&amp;</p>
+<p>rpm -qlp &lt;package_name&gt;.rpm</p>
+<p><strong>NOTE</strong>: Make sure that you added <code>IMAGE_INSTALL_append = &quot;&lt;recipe name&gt;&quot;</code> for package contents to be present in target image rootfs</p>
 
                 </div>
 
                 <!-- Mobile navigation buttons -->
                 
-
-                
-                    <a href="./build_basics.html" class="mobile-nav-chapters next">
-                        <i class="fa fa-angle-right"></i>
+                    <a href="./layers.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+                
+
                 
 
             </div>
 
             
-
-            
-                <a href="./build_basics.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
-                    <i class="fa fa-angle-right"></i>
+                <a href="./layers.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+            
+
             
 
         </div>
