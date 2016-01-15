@@ -1,10 +1,10 @@
 ##### CLEAN A RECIPE
-
+---
 **bitbake -c clean <recipe>**
 
   
 ##### FIND AND CHECK PACKAGE CONTENT
-
+---
 search here --> **cd tmp/deploy/rpm/**
 
 &
