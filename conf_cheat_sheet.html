@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./cheat_sheet.html" class="active"><strong>5.</strong> Cheat Sheet</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./minimal_image.html"><strong>5.</strong> Creating a minimal image</a></li><li><a href="./command_cheat_sheet.html"><strong>6.</strong> Command Cheat Sheet</a></li><li><a href="./conf_cheat_sheet.html" class="active"><strong>7.</strong> Conf Cheat Sheet</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -65,31 +65,37 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h5>CLEAN A RECIPE</h5>
+                    <h4>conf/local.conf (or) local.conf.sample in your own layer</h4>
 <hr />
-<p><strong>bitbake -c clean <recipe></strong></p>
-<h5>FIND AND CHECK PACKAGE CONTENT</h5>
-<hr />
-<p>search here --&gt; <strong>cd tmp/deploy/rpm/</strong></p>
-<p>&amp;</p>
-<p>rpm -qlp &lt;package_name&gt;.rpm</p>
-<p><strong>NOTE</strong>: Make sure that you added <code>IMAGE_INSTALL_append = &quot;&lt;recipe name&gt;&quot;</code> for package contents to be present in target image rootfs</p>
-<h5>SEARCH BITBAKE ENV</h5>
-<hr />
-<p><strong>bitbake -e mosquitto | grep ^S=</strong>      --&gt; find src dir of a recipe's package</p>
-<p><strong>bitbake -e mosquitto | grep ^WORKDIR</strong> --&gt; find working dir of a package</p>
-<p><strong>bitbake -c devshell mosquitto</strong>        --&gt; open dev shell of a recipe</p>
-<p>upacks source, patches it and opens recipe dir with environmet correctly set</p>
-<p><strong>bitbake -c listtasks mosquitto</strong>       --&gt; list all the tasks of a recipe***</p>
-<p><strong>bitbake -c compile -f mosquitto</strong>      --&gt; force compile</p>
-<p><strong>bitbake --show-versions | grep mosquitto</strong> --&gt; show package version</p>
-<p><strong>bitbake -gu depexp mosquitto</strong>         --&gt; show dependencies</p>
+<h6>Enabling Build History</h6>
+<p>If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.</p>
+<pre><code>INHERIT += &quot;buildhistory&quot;
+BUILDHISTORY_COMMIT = &quot;1&quot;
+</code></pre>
+<h6>Removing Build Output</h6>
+<ul>
+<li>Removing whole build output</li>
+</ul>
+<pre><code>INHERIT += &quot;rm_work&quot;
+</code></pre>
+<ul>
+<li>Removing specific packages</li>
+</ul>
+<pre><code>RM_WORK_EXCLUDE += &quot;linux-yocto u-boot&quot;
+</code></pre>
+<ul>
+<li>By default previous images are not erased. To erase previous images</li>
+</ul>
+<pre><code>RM_OLD_IMAGE = &quot;1&quot;
+</code></pre>
+<h6>Changing BBAPPEND As Warning Instead of Error</h6>
+<p><code>BB_DANGLINGAPPENDS_WARNONLY = &quot;true&quot;</code></p>
 
                 </div>
 
                 <!-- Mobile navigation buttons -->
                 
-                    <a href="./layers.html" class="mobile-nav-chapters previous">
+                    <a href="./command_cheat_sheet.html" class="mobile-nav-chapters previous">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
@@ -99,7 +105,7 @@
             </div>
 
             
-                <a href="./layers.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                <a href="./command_cheat_sheet.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
                     <i class="fa fa-angle-left"></i>
                 </a>
             

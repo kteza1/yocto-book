@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./cheat_sheet.html"><strong>5.</strong> Cheat Sheet</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./minimal_image.html"><strong>5.</strong> Creating a minimal image</a></li><li><a href="./command_cheat_sheet.html"><strong>6.</strong> Command Cheat Sheet</a></li><li><a href="./conf_cheat_sheet.html"><strong>7.</strong> Conf Cheat Sheet</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -207,6 +207,18 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <li><strong>meta-yocto</strong>: This contains Poky's distribution-specific metadata.</li>
 <li><strong>meta-yocto-bsp</strong>: This contains metadata for the reference hardware boards</li>
 </ul>
+<h4>USING SYSTEMD AS INIT SYSTEM INSTEAD OF INIT</h4>
+<hr />
+<ul>
+<li>Copy these lines in your conf/local.conf</li>
+</ul>
+<pre><code>DISTRO_FEATURES_append = &quot; systemd&quot;
+VIRTUAL-RUNTIME_init_manager = &quot;systemd&quot;
+DISTRO_FEATURES_BACKFILL_CONSIDERED = &quot;sysvinit&quot;
+VIRTUAL-RUNTIME_initscripts = &quot;&quot;
+</code></pre>
+<p><strong>NOTE</strong>: Don't miss the space in  <code>DISTRO_FEATURES_append</code></p>
+<p><strong>NOTE</strong>: Remove <code>tmp</code> folder incase you already have a built image</p>
 <h5>CLEAN A RECIPE</h5>
 <hr />
 <p><strong>bitbake -c clean <recipe></strong></p>
@@ -226,6 +238,31 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <p><strong>bitbake -c compile -f mosquitto</strong>      --&gt; force compile</p>
 <p><strong>bitbake --show-versions | grep mosquitto</strong> --&gt; show package version</p>
 <p><strong>bitbake -gu depexp mosquitto</strong>         --&gt; show dependencies</p>
+<h4>conf/local.conf (or) local.conf.sample in your own layer</h4>
+<hr />
+<h6>Enabling Build History</h6>
+<p>If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.</p>
+<pre><code>INHERIT += &quot;buildhistory&quot;
+BUILDHISTORY_COMMIT = &quot;1&quot;
+</code></pre>
+<h6>Removing Build Output</h6>
+<ul>
+<li>Removing whole build output</li>
+</ul>
+<pre><code>INHERIT += &quot;rm_work&quot;
+</code></pre>
+<ul>
+<li>Removing specific packages</li>
+</ul>
+<pre><code>RM_WORK_EXCLUDE += &quot;linux-yocto u-boot&quot;
+</code></pre>
+<ul>
+<li>By default previous images are not erased. To erase previous images</li>
+</ul>
+<pre><code>RM_OLD_IMAGE = &quot;1&quot;
+</code></pre>
+<h6>Changing BBAPPEND As Warning Instead of Error</h6>
+<p><code>BB_DANGLINGAPPENDS_WARNONLY = &quot;true&quot;</code></p>
 
                 </div>
 
