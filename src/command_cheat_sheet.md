@@ -1,9 +1,9 @@
-##### CLEAN A RECIPE
+#### CLEAN A RECIPE
 ---
 **bitbake -c clean <recipe>**
 
   
-##### FIND AND CHECK PACKAGE CONTENT
+#### FIND AND CHECK PACKAGE CONTENT
 ---
 search here --> **cd tmp/deploy/rpm/**
 
@@ -13,7 +13,7 @@ rpm -qlp <package_name>.rpm
 
 **NOTE**: Make sure that you added `IMAGE_INSTALL_append = "<recipe name>"` for package contents to be present in target image rootfs
 
-##### SEARCH BITBAKE ENV
+#### SEARCH BITBAKE ENV
 ---
 
 **bitbake -e mosquitto | grep ^S=**      --> find src dir of a recipe's package

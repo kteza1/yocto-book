@@ -1,7 +1,7 @@
-#### conf/local.conf (or) local.conf.sample in your own layer
+## conf/local.conf (or) local.conf.sample in your own layer
 ---
 
-###### Enabling Build History
+#### Enabling Build History
 
 If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.
 
@@ -10,7 +10,7 @@ INHERIT += "buildhistory"
 BUILDHISTORY_COMMIT = "1"
 ```
 
-###### Removing Build Output
+#### Removing Build Output
 
 * Removing whole build output
 ```
@@ -28,7 +28,7 @@ RM_OLD_IMAGE = "1"
 ```
 
 
-###### Changing BBAPPEND As Warning Instead of Error
+#### Changing BBAPPEND As Warning Instead of Error
 
 `BB_DANGLINGAPPENDS_WARNONLY = "true"`
 

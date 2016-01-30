@@ -1,4 +1,4 @@
-### HOW BUILD WORKS
+## HOW BUILD WORKS
 ---
 
 `oe-init-build` script calls the `scripts/oe-setup-builddir` script inside the poky directory to create the build directory. 
@@ -16,7 +16,7 @@ $ cd /opt/yocto/poky/<build dir>
 $ rm -Rf tmp sstate-cache
 ```
 
-##### CHOOSING A CUSTOM TEMPLATE CONFIGURATION
+#### CHOOSING A CUSTOM TEMPLATE CONFIGURATION
 
 when you create your build directory using the `TEMPLATECONF` variable; for example
 
@@ -24,10 +24,10 @@ when you create your build directory using the `TEMPLATECONF` variable; for exam
 $ TEMPLATECONF=meta-custom/config source oe-init-build-env <build- dir> 
 ```
 
-The `TEMPLATECONF` variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named local.conf.sample and bblayers.conf.sample
+The `TEMPLATECONF` variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named `local.conf.sample` and `bblayers.conf.sample`
 
 
-### BUILD CONFIG
+#### BUILD CONFIG
 ---
 
 Choose the image that you want to build for. Poky has support for some **image configurations** by default
@@ -38,13 +38,13 @@ $ ls meta*/recipes*/images/*.bb
 ```
 
 
-##### DIFFERENT IMAGE CONFIG SUFFIXES
+#### DIFFERENT IMAGE CONFIG SUFFIXES
 
 * **dev**: These images are suitable for development work, as they contain headers and libraries. 
 * **sdk**: These images include a complete SDK that can be used for development on the target
 * **initramfs**: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel
 
-### STARTING THE BUILD
+#### STARTING THE BUILD
 ---
 
 ```
@@ -53,7 +53,7 @@ $ source oe-init-build-env qemuarm
 $ MACHINE=qemuarm bitbake core-image-minimal
 ```
 
-### HOW IT WORKS
+#### HOW IT WORKS
 ---
 
 When you pass a target recipe (**core-image-minimal.bb**) to BitBake, it first parses the following configuration files: 
@@ -67,7 +67,7 @@ When you pass a target recipe (**core-image-minimal.bb**) to BitBake, it first p
 
 And then BitBake parses the **target recipe** that has been provided and its dependencies. The outcome is a set of interdependent tasks that BitBake will then execute in order
 
-##### TIP 1
+#### TIP 1
 
 Most developers won't be interested in keeping the whole build output for every package, so it is recommended to configure your project to remove it with the following configuration in your `conf/local.conf` file: 
 
@@ -81,12 +81,12 @@ But at the same time, configuring it for all packages means that you won't be ab
 RM_WORK_EXCLUDE += "linux-yocto u-boot"
 ```
 
-##### TIP 2
+#### TIP 2
 
 You can use a `custom template` config `local.conf.sample` configuration file in your own layer to keep these configurations and apply them for all projects so that they can be shared across all developers. Use the `TEMPLATECONF` var
 
 
-### IMAGES
+#### IMAGES
 ---
 
 You can find images here
@@ -97,7 +97,7 @@ tmp/deploy/images/qemuarm
 
 directory inside your build directory
 
-##### TIP
+#### TIP
 
 By default, images are not erased from the deploy directory, but you can configure your project to remove the previously built version of the same image by adding the following to your `conf/local.conf` file: 
 

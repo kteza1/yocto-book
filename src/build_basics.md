@@ -1,4 +1,4 @@
-### UBUNTU 15.10 SETUP
+## UBUNTU 15.10 SETUP
 ---
 
 ```
@@ -35,7 +35,7 @@ Poky also supports some reference hardware Board Support Packages (BSPs), repres
 
 
 
-### ORGANIZING BUILD DIR
+#### ORGANIZING BUILD DIR
 ---
 
 There is no right way to structure the build directories when you have multiple projects, but a good practice is to have **one build directory per architecture or machine type**. 
