@@ -4,4 +4,6 @@
 - [Build Basics](./build_basics.md)
 - [Build Configuration](./build_config.md)
 - [Layers](./layers.md)
-- [Cheat Sheet](./cheat_sheet.md)
+- [Creating a minimal image](./minimal_image.md)
+- [Command Cheat Sheet](./command_cheat_sheet.md)
+- [Conf Cheat Sheet](./conf_cheat_sheet.md)
