@@ -65,16 +65,16 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h5>CLEAN A RECIPE</h5>
+                    <h4>CLEAN A RECIPE</h4>
 <hr />
 <p><strong>bitbake -c clean <recipe></strong></p>
-<h5>FIND AND CHECK PACKAGE CONTENT</h5>
+<h4>FIND AND CHECK PACKAGE CONTENT</h4>
 <hr />
 <p>search here --&gt; <strong>cd tmp/deploy/rpm/</strong></p>
 <p>&amp;</p>
 <p>rpm -qlp &lt;package_name&gt;.rpm</p>
 <p><strong>NOTE</strong>: Make sure that you added <code>IMAGE_INSTALL_append = &quot;&lt;recipe name&gt;&quot;</code> for package contents to be present in target image rootfs</p>
-<h5>SEARCH BITBAKE ENV</h5>
+<h4>SEARCH BITBAKE ENV</h4>
 <hr />
 <p><strong>bitbake -e mosquitto | grep ^S=</strong>      --&gt; find src dir of a recipe's package</p>
 <p><strong>bitbake -e mosquitto | grep ^WORKDIR</strong> --&gt; find working dir of a package</p>

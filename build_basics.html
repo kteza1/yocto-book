@@ -65,7 +65,7 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h3>UBUNTU 15.10 SETUP</h3>
+                    <h2>UBUNTU 15.10 SETUP</h2>
 <hr />
 <pre><code>sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm make xsltproc docbook-utils fop dblatex xmlto autoconf automake libtool libglib2.0-dev python-gtk2 bsdmainutils screen
 </code></pre>
@@ -91,7 +91,7 @@ $ git clone --branch jethro --single-branch git://git.yoctoproject.org/poky
 <li>Intel x86 based PCs and devices (genericx86 and genericx86-64)</li>
 <li>Ubiquiti Networks EdgeRouter Lite (edgerouter)</li>
 </ul>
-<h3>ORGANIZING BUILD DIR</h3>
+<h4>ORGANIZING BUILD DIR</h4>
 <hr />
 <p>There is no right way to structure the build directories when you have multiple projects, but a good practice is to have <strong>one build directory per architecture or machine type</strong>.</p>
 <p>They can all share a <strong>common downloads</strong> folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>

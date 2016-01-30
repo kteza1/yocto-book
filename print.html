@@ -89,7 +89,7 @@
 <p>Openwrt took buildroot approach of makefiles + kconfig while openembedded took a different approach</p>
 <p>OpenEmbedded recipes can specify dependencies between packages, and later on, <strong>BitBake parses all the recipes and creates a queue of tasks in the correct order to fulfill the dependencies</strong></p>
 <p>Two examples of distributions created with OpenEmbedded are Angstrom and OpenMoko. Another OpenEmbedded-based distribution was Poky</p>
-<h3>UBUNTU 15.10 SETUP</h3>
+<h2>UBUNTU 15.10 SETUP</h2>
 <hr />
 <pre><code>sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm make xsltproc docbook-utils fop dblatex xmlto autoconf automake libtool libglib2.0-dev python-gtk2 bsdmainutils screen
 </code></pre>
@@ -115,7 +115,7 @@ $ git clone --branch jethro --single-branch git://git.yoctoproject.org/poky
 <li>Intel x86 based PCs and devices (genericx86 and genericx86-64)</li>
 <li>Ubiquiti Networks EdgeRouter Lite (edgerouter)</li>
 </ul>
-<h3>ORGANIZING BUILD DIR</h3>
+<h4>ORGANIZING BUILD DIR</h4>
 <hr />
 <p>There is no right way to structure the build directories when you have multiple projects, but a good practice is to have <strong>one build directory per architecture or machine type</strong>.</p>
 <p>They can all share a <strong>common downloads</strong> folders, and even a shared state cache (this will be covered later on), so keeping them separate won't affect the build performance, but it will allow you to develop on multiple hardware projects simultaneously</p>
@@ -130,7 +130,7 @@ $ source oe-init-build-env &lt;build dir&gt; --&gt; Create a build envoronment i
 <pre><code>$ bitbake -m
 </code></pre>
 <p><strong>NOTE</strong>: Don't use memres and normal setup at the same time as it could lead to confusing errors</p>
-<h3>HOW BUILD WORKS</h3>
+<h2>HOW BUILD WORKS</h2>
 <hr />
 <p><code>oe-init-build</code> script calls the <code>scripts/oe-setup-builddir</code> script inside the poky directory to create the build directory.</p>
 <p>On creation, the build directory contains a conf directory with the following three files:</p>
@@ -143,30 +143,30 @@ $ source oe-init-build-env &lt;build dir&gt; --&gt; Create a build envoronment i
 <pre><code>$ cd /opt/yocto/poky/&lt;build dir&gt;
 $ rm -Rf tmp sstate-cache
 </code></pre>
-<h5>CHOOSING A CUSTOM TEMPLATE CONFIGURATION</h5>
+<h4>CHOOSING A CUSTOM TEMPLATE CONFIGURATION</h4>
 <p>when you create your build directory using the <code>TEMPLATECONF</code> variable; for example</p>
 <pre><code>$ TEMPLATECONF=meta-custom/config source oe-init-build-env &lt;build- dir&gt; 
 </code></pre>
-<p>The <code>TEMPLATECONF</code> variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named local.conf.sample and bblayers.conf.sample</p>
-<h3>BUILD CONFIG</h3>
+<p>The <code>TEMPLATECONF</code> variable needs to refer to a directory containing templates for both local.conf and bblayer.conf, but named <code>local.conf.sample</code> and <code>bblayers.conf.sample</code></p>
+<h4>BUILD CONFIG</h4>
 <hr />
 <p>Choose the image that you want to build for. Poky has support for some <strong>image configurations</strong> by default</p>
 <pre><code>$ cd /opt/yocto/poky 
 $ ls meta*/recipes*/images/*.bb
 </code></pre>
-<h5>DIFFERENT IMAGE CONFIG SUFFIXES</h5>
+<h4>DIFFERENT IMAGE CONFIG SUFFIXES</h4>
 <ul>
 <li><strong>dev</strong>: These images are suitable for development work, as they contain headers and libraries.</li>
 <li><strong>sdk</strong>: These images include a complete SDK that can be used for development on the target</li>
 <li><strong>initramfs</strong>: This is an image that can be used for a RAM-based root filesystem, which can optionally be embedded with the Linux kernel</li>
 </ul>
-<h3>STARTING THE BUILD</h3>
+<h4>STARTING THE BUILD</h4>
 <hr />
 <pre><code>$ cd /opt/yocto/poky
 $ source oe-init-build-env qemuarm
 $ MACHINE=qemuarm bitbake core-image-minimal
 </code></pre>
-<h3>HOW IT WORKS</h3>
+<h4>HOW IT WORKS</h4>
 <hr />
 <p>When you pass a target recipe (<strong>core-image-minimal.bb</strong>) to BitBake, it first parses the following configuration files:</p>
 <ul>
@@ -178,22 +178,22 @@ $ MACHINE=qemuarm bitbake core-image-minimal
 <li><strong>meta-yocto/conf/distro/<distro>.conf</strong>: This file is the distribution policy; by default, this is the <code>poky.conf</code> file</li>
 </ul>
 <p>And then BitBake parses the <strong>target recipe</strong> that has been provided and its dependencies. The outcome is a set of interdependent tasks that BitBake will then execute in order</p>
-<h5>TIP 1</h5>
+<h4>TIP 1</h4>
 <p>Most developers won't be interested in keeping the whole build output for every package, so it is recommended to configure your project to remove it with the following configuration in your <code>conf/local.conf</code> file:</p>
 <pre><code>INHERIT += &quot;rm_work&quot; 
 </code></pre>
 <p>But at the same time, configuring it for all packages means that you won't be able to develop or debug them. You can add a list of packages to exclude from cleaning by adding them to the <code>RM_WORK_EXCLUDE</code> variable. For example, if you are going to do BSP work, a good setting might be:</p>
 <pre><code>RM_WORK_EXCLUDE += &quot;linux-yocto u-boot&quot;
 </code></pre>
-<h5>TIP 2</h5>
+<h4>TIP 2</h4>
 <p>You can use a <code>custom template</code> config <code>local.conf.sample</code> configuration file in your own layer to keep these configurations and apply them for all projects so that they can be shared across all developers. Use the <code>TEMPLATECONF</code> var</p>
-<h3>IMAGES</h3>
+<h4>IMAGES</h4>
 <hr />
 <p>You can find images here</p>
 <pre><code>tmp/deploy/images/qemuarm
 </code></pre>
 <p>directory inside your build directory</p>
-<h5>TIP</h5>
+<h4>TIP</h4>
 <p>By default, images are not erased from the deploy directory, but you can configure your project to remove the previously built version of the same image by adding the following to your <code>conf/local.conf</code> file:</p>
 <pre><code>RM_OLD_IMAGE = &quot;1&quot;
 </code></pre>
@@ -219,16 +219,16 @@ VIRTUAL-RUNTIME_initscripts = &quot;&quot;
 </code></pre>
 <p><strong>NOTE</strong>: Don't miss the space in  <code>DISTRO_FEATURES_append</code></p>
 <p><strong>NOTE</strong>: Remove <code>tmp</code> folder incase you already have a built image</p>
-<h5>CLEAN A RECIPE</h5>
+<h4>CLEAN A RECIPE</h4>
 <hr />
 <p><strong>bitbake -c clean <recipe></strong></p>
-<h5>FIND AND CHECK PACKAGE CONTENT</h5>
+<h4>FIND AND CHECK PACKAGE CONTENT</h4>
 <hr />
 <p>search here --&gt; <strong>cd tmp/deploy/rpm/</strong></p>
 <p>&amp;</p>
 <p>rpm -qlp &lt;package_name&gt;.rpm</p>
 <p><strong>NOTE</strong>: Make sure that you added <code>IMAGE_INSTALL_append = &quot;&lt;recipe name&gt;&quot;</code> for package contents to be present in target image rootfs</p>
-<h5>SEARCH BITBAKE ENV</h5>
+<h4>SEARCH BITBAKE ENV</h4>
 <hr />
 <p><strong>bitbake -e mosquitto | grep ^S=</strong>      --&gt; find src dir of a recipe's package</p>
 <p><strong>bitbake -e mosquitto | grep ^WORKDIR</strong> --&gt; find working dir of a package</p>
@@ -238,14 +238,14 @@ VIRTUAL-RUNTIME_initscripts = &quot;&quot;
 <p><strong>bitbake -c compile -f mosquitto</strong>      --&gt; force compile</p>
 <p><strong>bitbake --show-versions | grep mosquitto</strong> --&gt; show package version</p>
 <p><strong>bitbake -gu depexp mosquitto</strong>         --&gt; show dependencies</p>
-<h4>conf/local.conf (or) local.conf.sample in your own layer</h4>
+<h2>conf/local.conf (or) local.conf.sample in your own layer</h2>
 <hr />
-<h6>Enabling Build History</h6>
+<h4>Enabling Build History</h4>
 <p>If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.</p>
 <pre><code>INHERIT += &quot;buildhistory&quot;
 BUILDHISTORY_COMMIT = &quot;1&quot;
 </code></pre>
-<h6>Removing Build Output</h6>
+<h4>Removing Build Output</h4>
 <ul>
 <li>Removing whole build output</li>
 </ul>
@@ -261,7 +261,7 @@ BUILDHISTORY_COMMIT = &quot;1&quot;
 </ul>
 <pre><code>RM_OLD_IMAGE = &quot;1&quot;
 </code></pre>
-<h6>Changing BBAPPEND As Warning Instead of Error</h6>
+<h4>Changing BBAPPEND As Warning Instead of Error</h4>
 <p><code>BB_DANGLINGAPPENDS_WARNONLY = &quot;true&quot;</code></p>
 
                 </div>

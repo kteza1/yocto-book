@@ -65,14 +65,14 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h4>conf/local.conf (or) local.conf.sample in your own layer</h4>
+                    <h2>conf/local.conf (or) local.conf.sample in your own layer</h2>
 <hr />
-<h6>Enabling Build History</h6>
+<h4>Enabling Build History</h4>
 <p>If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.</p>
 <pre><code>INHERIT += &quot;buildhistory&quot;
 BUILDHISTORY_COMMIT = &quot;1&quot;
 </code></pre>
-<h6>Removing Build Output</h6>
+<h4>Removing Build Output</h4>
 <ul>
 <li>Removing whole build output</li>
 </ul>
@@ -88,7 +88,7 @@ BUILDHISTORY_COMMIT = &quot;1&quot;
 </ul>
 <pre><code>RM_OLD_IMAGE = &quot;1&quot;
 </code></pre>
-<h6>Changing BBAPPEND As Warning Instead of Error</h6>
+<h4>Changing BBAPPEND As Warning Instead of Error</h4>
 <p><code>BB_DANGLINGAPPENDS_WARNONLY = &quot;true&quot;</code></p>
 
                 </div>
