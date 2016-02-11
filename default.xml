@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="http://github.com" name="gith"/>
+  <remote fetch="ssh://git@github.com" name="ather"/>
+  <remote fetch="http://git.linaro.org/git-ro/openembedded" name="linaro"/>
+  <remote fetch="http://git.openembedded.org" name="oe"/>
+  <remote fetch="http://git.toradex.com" name="trdx"/>
+  <remote fetch="http://git.toradex.com" name="trdx"/>
+  <remote fetch="http://git.yoctoproject.org" name="yocto"/>
+  
+  <default sync-j="32"/>
+  <project name="poky.git" path="poky" remote="yocto" revision="fido" upstream="fido"/>
+  <project name="Freescale/meta-fsl-arm-extra.git" path="meta-fsl-arm-extra" remote="gith" revision="41e79c6bd055f12b6252618c22c43a2fed5cfb49" upstream="fido"/>
+  <project name="Freescale/meta-fsl-arm.git" path="meta-fsl-arm" remote="gith" revision="c9f259a4bf8472dfa3ff75f1c3fcbe5e0ded7aaf" upstream="fido"/>
+  <project name="Freescale/meta-fsl-demos.git" path="meta-fsl-demos" remote="gith" revision="17f9da65efb5c65c1d44b5cc18584034b29a742b" upstream="fido"/>
+  <project name="OSSystems/meta-browser.git" path="meta-browser" remote="gith" revision="06aab8ea56aa130f26a3651fc3a370fba3d967f1" upstream="master"/>
+  <project name="AtherEnergy/meta-openembedded" path="meta-openembedded" remote="ather" revision="fido" upstream="fido"/>
+  <project name="AtherEnergy/meta-toradex.git" path="meta-toradex" remote="ather" revision="V2.5" upstream="V2.5">
+    <copyfile dest="export" src="buildconf/export"/>
+  </project>
+  <project name="imyller/meta-nodejs" path="meta-nodejs" remote="gith" revision="master" upstream="master"/>
+  <project name="AtherEnergy/meta-ather" path="meta-ather" remote="ather" revision="master" upstream="master"/>
+  <project name="jmesmon/meta-rust" path="meta-rust" remote="gith" revision="master" upstream="master" />
+  <project name="digitallumens/meta-golang" path="meta-golang" remote="gith" revision="master" upstream="master" />
+  <project name="crosswalk-project/meta-crosswalk" path="meta-crosswalk" remote="gith" revision="master" upstream="master" />
+</manifest>
