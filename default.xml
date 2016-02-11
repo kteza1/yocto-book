@@ -3,23 +3,23 @@
   <default sync-j="32" revision="master"/>
   <remote fetch="http://github.com" name="gith"/>
   <remote fetch="ssh://git@github.com" name="ather"/>
-  <remote fetch="http://git.linaro.org/git-ro/openembedded" name="linaro"/>
   <remote fetch="http://git.openembedded.org" name="oe"/>
   <remote fetch="http://git.toradex.com" name="trdx"/>
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   
-  <project name="poky" path="stuff/poky" remote="yocto" revision="fido" upstream="fido"/>
+  <project name="poky" path="stuff/poky" remote="yocto" revision="fido"/>
   <project name="Freescale/meta-fsl-arm-extra.git" path="stuff/meta-fsl-arm-extra" remote="gith" revision="fido" upstream="fido"/>
   <project name="Freescale/meta-fsl-arm.git" path="stuff/meta-fsl-arm" remote="gith" revision="fido" upstream="fido"/>
   <project name="Freescale/meta-fsl-demos.git" path="stuff/meta-fsl-demos" remote="gith" revision="fido" upstream="fido"/>
-  <project name="OSSystems/meta-browser.git" path="stuff/meta-browser" remote="gith" revision="fido" upstream="master"/>
   <project name="AtherEnergy/meta-openembedded" path="stuff/meta-openembedded" remote="ather" revision="fido" upstream="fido"/>
-  <project name="meta-toradex.git" path="stuff/meta-toradex" remote="trdx" revision="V2.5-next" upstream="V2.5-next">
+  <project name="meta-toradex.git" path="stuff/meta-toradex" remote="trdx" revision="V2.5-next" upstream="V2.5-next"/>
+  <project name="AtherEnergy/openembedded-core" path="stuff/openembedded-core" remote="ather" revision="fido" upstream="fido"/>
+  <project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="f81404fe014da8b86dae6f47fc99975ff2a855d1" upstream="master"/>
+  <project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master">
     <copyfile dest="export" src="buildconf/export"/>
   </project>
   <project name="imyller/meta-nodejs" path="stuff/meta-nodejs" remote="gith" revision="master" upstream="master"/>
-  <project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master"/>
   <project name="jmesmon/meta-rust" path="stuff/meta-rust" remote="gith" revision="master" upstream="master" />
-  <project name="digitallumens/meta-golang" path="stuff/meta-golang" remote="gith" revision="master" upstream="master" />
+  <project name="digitallumens/meta-golang" path="stuff/meta-golang" remote="gith" revision="go-1.5" upstream="master" />
   <project name="crosswalk-project/meta-crosswalk" path="stuff/meta-crosswalk" remote="gith" revision="master" upstream="master" />
 </manifest>
