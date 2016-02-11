@@ -20,6 +20,6 @@
   </project>
   <project name="imyller/meta-nodejs" path="stuff/meta-nodejs" remote="gith" revision="master" upstream="master"/>
   <project name="jmesmon/meta-rust" path="stuff/meta-rust" remote="gith" revision="master" upstream="master" />
-  <project name="digitallumens/meta-golang" path="stuff/meta-golang" remote="gith" revision="go-1.5" upstream="master" />
+  <project name="kteza1/meta-golang" path="stuff/meta-golang" remote="gith" revision="go-1.5" upstream="master" />
   <project name="crosswalk-project/meta-crosswalk" path="stuff/meta-crosswalk" remote="gith" revision="master" upstream="master" />
 </manifest>
