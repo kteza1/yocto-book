@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote fetch="http://github.com" name="gith"/>
-  <remote fetch="ssh://git@github.com" name="ather"/>
-  <remote fetch="http://git.linaro.org/git-ro/openembedded" name="linaro"/>
-  <remote fetch="http://git.openembedded.org" name="oe"/>
-  <remote fetch="http://git.toradex.com" name="trdx"/>
-  <remote fetch="http://git.yoctoproject.org" name="yocto"/>
+  <default sync-j="32" revision="master"/>
+  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   
-  <default sync-j="32"/>
-  <project name="poky.git" path="poky" remote="yocto" revision="fido" upstream="fido"/>
-  <project name="Freescale/meta-fsl-arm-extra.git" path="meta-fsl-arm-extra" remote="gith" revision="fido" upstream="fido"/>
-  <project name="Freescale/meta-fsl-arm.git" path="meta-fsl-arm" remote="gith" revision="fido" upstream="fido"/>
-  <project name="Freescale/meta-fsl-demos.git" path="meta-fsl-demos" remote="gith" revision="fido" upstream="fido"/>
-  <project name="OSSystems/meta-browser.git" path="meta-browser" remote="gith" revision="fido" upstream="master"/>
-  <project name="AtherEnergy/meta-openembedded" path="meta-openembedded" remote="ather" revision="fido" upstream="fido"/>
-  <project name="meta-toradex.git" path="meta-toradex" remote="trdx" revision="V2.5" upstream="V2.5-next">
-    <copyfile dest="export" src="buildconf/export"/>
-  </project>
-  <project name="imyller/meta-nodejs" path="meta-nodejs" remote="gith" revision="master" upstream="master"/>
-  <project name="AtherEnergy/meta-ather" path="meta-ather" remote="ather" revision="master" upstream="master"/>
-  <project name="jmesmon/meta-rust" path="meta-rust" remote="gith" revision="master" upstream="master" />
-  <project name="digitallumens/meta-golang" path="meta-golang" remote="gith" revision="master" upstream="master" />
-  <project name="crosswalk-project/meta-crosswalk" path="meta-crosswalk" remote="gith" revision="master" upstream="master" />
+  <project name="poky" path="stuff/poky" remote="yocto" revision="fido"/>
 </manifest>
