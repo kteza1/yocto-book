@@ -14,7 +14,7 @@
   <project name="AtherEnergy/meta-openembedded" path="stuff/meta-openembedded" remote="ather" revision="fido" upstream="fido"/>
   <project name="meta-toradex.git" path="stuff/meta-toradex" remote="trdx" revision="V2.5-next" upstream="V2.5-next"/>
   <project name="AtherEnergy/openembedded-core" path="stuff/openembedded-core" remote="ather" revision="fido" upstream="fido"/>
-  <project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="f81404fe014da8b86dae6f47fc99975ff2a855d1" upstream="master"/>
+  <project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="master" upstream="master"/>
   <project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master">
     <copyfile dest="export" src="buildconf/export"/>
   </project>
