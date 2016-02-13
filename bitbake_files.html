@@ -45,7 +45,7 @@
         </script>
 
         <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./bitbake_files.html"><strong>5.</strong> Bitbake Files</a></li><li><a href="./minimal_image.html"><strong>6.</strong> Creating a minimal image</a></li><li><a href="./command_cheat_sheet.html"><strong>7.</strong> Command Cheat Sheet</a></li><li><a href="./conf_cheat_sheet.html" class="active"><strong>8.</strong> Conf Cheat Sheet</a></li><li><a href="./environ_cheat_sheet.html"><strong>9.</strong> Environment Cheat Sheet</a></li></ul>
+            <ul class="chapter"><li><a href="./introduction.html"><strong>1.</strong> Introduction</a></li><li><a href="./build_basics.html"><strong>2.</strong> Build Basics</a></li><li><a href="./build_config.html"><strong>3.</strong> Build Configuration</a></li><li><a href="./layers.html"><strong>4.</strong> Layers</a></li><li><a href="./bitbake_files.html" class="active"><strong>5.</strong> Bitbake Files</a></li><li><a href="./minimal_image.html"><strong>6.</strong> Creating a minimal image</a></li><li><a href="./command_cheat_sheet.html"><strong>7.</strong> Command Cheat Sheet</a></li><li><a href="./conf_cheat_sheet.html"><strong>8.</strong> Conf Cheat Sheet</a></li><li><a href="./environ_cheat_sheet.html"><strong>9.</strong> Environment Cheat Sheet</a></li></ul>
         </div>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -65,43 +65,41 @@
                 </div>
 
                 <div id="content" class="content">
-                    <h2>conf/local.conf (or) local.conf.sample in your own layer</h2>
-<hr />
-<h4>Enabling Build History</h4>
-<p>If you enable build history, yocto will save the build history of packages in a local git repository allowing you to compare the changes you did to a package.</p>
-<pre><code>INHERIT += &quot;buildhistory&quot;
-BUILDHISTORY_COMMIT = &quot;1&quot;
-</code></pre>
-<h4>Removing Build Output</h4>
+                    <blockquote>
+<p>DEPENDS means a build-time dependency i.e. between recipes, RDEPENDS means a
+runtime dependency i.e. between packages. It is worth noting though that an
+explicitly stated RDEPENDS will cause bitbake to actually build the recipe
+providing the package named in the RDEPENDS value, just at a different time. To
+explain exactly what each of these do:</p>
 <ul>
-<li>Removing whole build output</li>
+<li>
+<p>DEPENDS = &quot;b&quot; in recipe &quot;a&quot; will translate to a's do_configure task depending
+on recipe b's do_populate_sysroot task, so that anything recipe b puts into
+the sysroot is available for when a configures itself.</p>
+</li>
+<li>
+<p>RDEPENDS_${PN} = &quot;b&quot; in recipe &quot;a&quot; will translate to a's do_build task
+depending on recipe b's do_package_write task, so that the package file b is
+available when the output for a has been completely built (of course assuming
+that recipe b produces a package called &quot;b&quot;, which it will with the default
+value of PACKAGES). More importantly it will also ensure that package &quot;a&quot; is
+marked as depending on &quot;b&quot; in a manner understood by the package manager being
+used e.g. rpm / opkg / dpkg.</p>
+</li>
 </ul>
-<pre><code>INHERIT += &quot;rm_work&quot;
-</code></pre>
-<ul>
-<li>Removing specific packages</li>
-</ul>
-<pre><code>RM_WORK_EXCLUDE += &quot;linux-yocto u-boot&quot;
-</code></pre>
-<ul>
-<li>By default previous images are not erased. To erase previous images</li>
-</ul>
-<pre><code>RM_OLD_IMAGE = &quot;1&quot;
-</code></pre>
-<h4>Changing BBAPPEND As Warning Instead of Error</h4>
-<p><code>BB_DANGLINGAPPENDS_WARNONLY = &quot;true&quot;</code></p>
+</blockquote>
 
                 </div>
 
                 <!-- Mobile navigation buttons -->
                 
-                    <a href="./command_cheat_sheet.html" class="mobile-nav-chapters previous">
+                    <a href="./layers.html" class="mobile-nav-chapters previous">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="./environ_cheat_sheet.html" class="mobile-nav-chapters next">
+                    <a href="./minimal_image.html" class="mobile-nav-chapters next">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -109,13 +107,13 @@ BUILDHISTORY_COMMIT = &quot;1&quot;
             </div>
 
             
-                <a href="./command_cheat_sheet.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                <a href="./layers.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
                     <i class="fa fa-angle-left"></i>
                 </a>
             
 
             
-                <a href="./environ_cheat_sheet.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                <a href="./minimal_image.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
                     <i class="fa fa-angle-right"></i>
                 </a>
             
