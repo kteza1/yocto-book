@@ -17,6 +17,7 @@
   <project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="master" upstream="master"/>
   <project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master">
     <copyfile dest="export" src="buildconf/export"/>
+    <copyfile dest="toradex-image-build" src="image-template"/>
   </project>
   <project name="imyller/meta-nodejs" path="stuff/meta-nodejs" remote="gith" revision="master" upstream="master"/>
   <project name="kteza1/meta-rust" path="stuff/meta-rust" remote="gith" revision="master" upstream="master" />
