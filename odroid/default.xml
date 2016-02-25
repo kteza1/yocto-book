@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <default sync-j="16" revision="master"/>
+  <remote fetch="http://github.com" name="gith"/>
+  <remote fetch="ssh://git@github.com" name="ather"/>
+  <remote fetch="http://git.openembedded.org" name="oe"/>
+  <remote fetch="http://git.toradex.com" name="trdx"/>
+  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
+  
+  <project name="poky" path="stuff/poky" remote="yocto" revision="jethro"/>
+  <project name="meta-openembedded" path="stuff/meta-openembedded" remote="oe" revision="jethro"/>
+  <project name="openembedded-core" path="stuff/openembedded-core" remote="oe" revision="jethro"/>
+  <project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master">
+    <copyfile dest="export" src="buildconf/export"/>
+    <copyfolder dest="toradex-image-build" src="image-template"/>
+  </project>
+  <project name="kteza1/meta-rust" path="stuff/meta-rust" remote="gith" revision="master" upstream="master" />
+  <project name="kteza1/meta-golang" path="stuff/meta-golang" remote="gith" revision="go-1.5" upstream="master" />
+  <project name="akuster/meta-odroid" path="stuff/meta-odroid" remote="gith" revision="master" upstream="master" />
+</manifest>
