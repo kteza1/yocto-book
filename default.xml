@@ -8,7 +8,7 @@
 	<remote fetch="git://git.yoctoproject.org" name="yocto"/>
 
 	<project name="poky" path="stuff/poky" remote="yocto" revision="jethro"/>
-	<project name="Freescale/meta-fsl-arm-extra.git" path="stuff/meta-fsl-arm-extra" remote="gith" revision="36a638abe1238bdc8e0ef1242dd7bfab59cc48d7" upstream="master"/>
+	<project name="Ather-Energy/meta-fsl-arm-extra" path="stuff/meta-fsl-arm-extra" remote="ather" revision="jethro" upstream="jethro"/>
 	<project name="Freescale/meta-fsl-arm.git" path="stuff/meta-fsl-arm" remote="gith" revision="jethro" upstream="jethro"/>
 	<project name="meta-openembedded" path="stuff/meta-openembedded" remote="oe" revision="jethro" upstream="master"/>
 	<project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="master" upstream="master"/>
