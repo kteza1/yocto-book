@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <default sync-j="32" revision="master"/>
-  <remote fetch="http://github.com" name="gith"/>
-  <remote fetch="ssh://git@github.com" name="ather"/>
-  <remote fetch="http://git.openembedded.org" name="oe"/>
-  <remote fetch="http://git.toradex.com" name="trdx"/>
-  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
-  
-  <project name="poky" path="stuff/poky" remote="yocto" revision="jethro"/>
-  <project name="Freescale/meta-fsl-arm-extra.git" path="stuff/meta-fsl-arm-extra" remote="gith" revision="36a638abe1238bdc8e0ef1242dd7bfab59cc48d7" upstream="master"/>
-  <project name="Freescale/meta-fsl-arm.git" path="stuff/meta-fsl-arm" remote="gith" revision="jethro" upstream="jethro"/>
+	<default sync-j="32" revision="master"/>
+	<remote fetch="http://github.com" name="gith"/>
+	<remote fetch="ssh://git@github.com" name="ather"/>
+	<remote fetch="http://git.openembedded.org" name="oe"/>
+	<remote fetch="http://git.toradex.com" name="trdx"/>
+	<remote fetch="git://git.yoctoproject.org" name="yocto"/>
+
+	<project name="poky" path="stuff/poky" remote="yocto" revision="jethro"/>
+	<project name="Freescale/meta-fsl-arm-extra.git" path="stuff/meta-fsl-arm-extra" remote="gith" revision="36a638abe1238bdc8e0ef1242dd7bfab59cc48d7" upstream="master"/>
+	<project name="Freescale/meta-fsl-arm.git" path="stuff/meta-fsl-arm" remote="gith" revision="jethro" upstream="jethro"/>
+	<project name="meta-openembedded" path="stuff/meta-openembedded" remote="oe" revision="jethro" upstream="master"/>
+	<project name="OSSystems/meta-browser" path="stuff/meta-browser" remote="gith" revision="master" upstream="master"/>
+	<project name="AtherEnergy/meta-ather" path="stuff/meta-ather" remote="ather" revision="master" upstream="master">
+    		<copyfile dest="export" src="buildconf/export"/>
+    		<copyfolder dest="toradex-image-build" src="image-template"/>
+  	</project>
+  	<project name="imyller/meta-nodejs" path="stuff/meta-nodejs" remote="gith" revision="master" upstream="master"/>
+  	<project name="jmesmon/meta-rust" path="stuff/meta-rust" remote="gith" revision="d47b1578c7a556695138c37bcb1c1bb3a380097e" upstream="master" />
+  	<project name="kteza1/meta-golang" path="stuff/meta-golang" remote="gith" revision="go-1.5" upstream="master" />
 </manifest>
